@@ -1,0 +1,46 @@
+﻿@model QuizFactory.Mvc.ViewModels.Play.QuizPlayViewModel
+
+@{
+    Layout = "~/Views/Play/PlayQuizLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(x => x.Questions)
+    @Html.Submit(new { value = "Submit Quiz", @class = "btn btn-primary box-shadow" })
+}
+
+@section scripts{
+    <script>
+        $("input[type='submit']").addClass("disabled");
+
+        var allAnswerIds = {};
+
+        var answers = $("input[type='radio']");
+
+        answers.each(function (idx, elm) {
+            allAnswerIds[elm.id] = 1;
+        })
+
+        function onRadioClick() {
+            var allReady = true;
+
+            for (var a in allAnswerIds) {
+                if (!$("input[id='" + a + "']:checked").length) {
+                    allReady = false;
+                    break;
+                }
+            }
+
+            if (allReady) {
+                $("input[type='submit']").removeClass("disabled");
+            }
+            return true;
+        }
+
+        answers.click(onRadioClick);
+    </script>
+}

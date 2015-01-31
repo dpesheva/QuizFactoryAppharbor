@@ -1,0 +1,36 @@
+﻿@model  QuizFactory.Mvc.Areas.Admin.ViewModels.CategoryViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="red text-shadow">Delete</h2>
+
+<h3 class="gray">Are you sure you want to delete category "@Model.Name"?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal gray">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd class="gray">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationMessage("Error", new { @class = "red" })
+        <div class="form-group col-md-offset-2">
+            <input type="submit" value="Delete" class="btn btn-danger box-shadow" />
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to Categories administration", "Index")
+    </div>
+
+</div>

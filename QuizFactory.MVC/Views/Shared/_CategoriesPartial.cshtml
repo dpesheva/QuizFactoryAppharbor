@@ -1,0 +1,10 @@
+﻿@model IEnumerable<QuizFactory.Data.Models.Category>
+
+<div class="categories">
+    <h3 class="green">Categories</h3>
+    @foreach (var item in Model)
+    {
+        @Html.ActionLink(item.Name, "Index", new { catId = item.Id }, new { @class = "category" })
+    }
+
+</div>

@@ -1,0 +1,72 @@
+﻿@model QuizFactory.Mvc.Areas.Users.ViewModels.QuizUserViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="red text-shadow">Delete</h2>
+
+<h3 class="gray">Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal gray">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPublic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPublic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberQuestions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberQuestions)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group col-md-offset-2">
+            <input type="submit" value="Delete" class="btn btn-danger box-shadow" />
+        </div>
+
+    } @Html.ActionLink("Back to Quiz administration", "Index")
+</div>

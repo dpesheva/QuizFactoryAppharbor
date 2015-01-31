@@ -1,0 +1,84 @@
+﻿@model QuizFactory.Mvc.ViewModels.Play.QuizPlayViewModel
+
+@{
+    Layout = "~/Views/Play/PlayQuizLayout.cshtml";
+}
+
+@{
+    Dictionary<int, int> results = (Dictionary<int, int>)TempData["results"];
+    var percentage = (int)TempData["scorePercentage"];
+}
+
+@foreach (var question in Model.Questions)
+{
+    <div class="question box-shadow gray">
+        <h4>@question.QuestionText </h4>
+        @{
+
+    foreach (var answer in question.Answers)
+    {
+        string answerColor = "";
+        bool isSelected = false;
+        if (results.ContainsKey((question.Id)) && results[(question.Id)] == answer.Id)
+        {
+            answerColor = "blue";
+            isSelected = true;
+        }
+        <p class=@answerColor>
+            @answer.Text
+            @if (answer.IsCorrect)
+            {
+                <i class="glyphicon glyphicon-ok green"></i>
+            }
+            else if (isSelected) //Selected wrong answer
+            {
+                <i class="glyphicon glyphicon-remove red"></i>
+            }
+        </p>
+    }
+        }
+
+    </div>
+}
+<div class="progress box-shadow">
+    <div class="progress-bar" role="progressbar" aria-valuenow=@percentage aria-valuemin="0" aria-valuemax="100" style="width: @percentage%;">
+        @percentage%
+    </div>
+</div>
+
+@if (Request.IsAuthenticated)
+{
+    string classHidden = "";
+    if (ViewBag.Voted == null || !(bool)ViewBag.Voted)
+    {
+        classHidden = "hidden";
+        <span class="yellow lead">Vote: </span>
+        <span class="star-rating">
+            @for (int i = 0; i < 5; i++)
+            {
+                @Ajax.ActionLink(" ", "Vote", "Vote", new { value = i+1, id = Model.Id, area = "Users" },
+                    new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            OnFailure = "hideStars()",
+                            OnSuccess = "hideStars()"
+                        })<i></i>
+            }
+        </span>
+    }
+
+    <span id="message" class="lead yellow @classHidden">Thank you for voting!</span>
+}
+else
+{
+    @Html.ActionLink("Register for voting", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+}
+
+@section scripts{
+    <script>
+    function hideStars(){
+        $(".star-rating").addClass("hidden");
+        $("#message").removeClass("hidden");
+    }
+    </script>
+}

@@ -1,0 +1,76 @@
+﻿@using QuizFactory.Data.Common;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Factory</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+    @Styles.Render("~/Content/custom")
+</head>
+<body>
+    <div class="clearfix">
+        <a href='@Url.Action("Index", "Home", new { @class = "navbar-brand" })' class="left">
+            <img src='@Url.Content("~/Content/Images/logo.png")' />
+        </a>
+        @Html.Partial("_LoginPartial")
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse  main-menu">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })</li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("New Quiz", "Create", "QuizUsers", new { area = "Users" }, new { })</li>
+                    <li>@Html.ActionLink("My Quizzes", "Index", "QuizUsers", new { area = "Users" }, new { })</li>
+                    <li>@Html.ActionLink("History", "Index", "History", new { area = "Users" }, new { })</li>
+                }
+               
+                @if (User.IsInRole(GlobalConstants.AdminRole))
+                {
+                    <li class="dropdown">
+                        <a class=" dropdown-toggle" data-toggle="dropdown" href="#">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Categories", "Index", "Categories", new { area = "Admin" }, new { })</li>
+                            <li>@Html.ActionLink("Quizzes", "Index", "QuizAdmin", new { area = "Admin" }, new { })</li>
+                            <li>@Html.ActionLink("Users", "Index", "Users", new { area = "Admin" }, new { })</li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+            <div class="right search-form">
+                @using (Html.BeginForm("Search", "Home", new { }, FormMethod.Get, new { }))
+                {
+                    @Html.TextBox("search", "", new { @class = "search-box gray", placeholder = "Search..." })
+                    <label for="submit" class="glyphicon glyphicon-search search-button">  </label>
+                    @Html.Submit(new { id = "submit", value = "", @class = "hidden" })
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <hr />
+    <footer>
+        <p class="text-center yellow">&copy; @DateTime.Now.Year - <a class="yellow" href="http://github.com/dpesheva/QuizFactory"> Quiz Factory</a> - Asp.Net MVC Application</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/unobtrusive-jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

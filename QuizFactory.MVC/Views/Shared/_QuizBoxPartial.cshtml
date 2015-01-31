@@ -1,0 +1,26 @@
+﻿@model QuizFactory.Mvc.ViewModels.QuizMainInfoViewModel
+
+<div class="col-sm-4">
+    <div class="quiz-box box-shadow">
+        <h4>@Html.ActionLink(@Model.Title, "PlayQuiz", "Play", new { id = @Model.Id }, new { })</h4>
+        <p class="red">@Model.Category</p>
+        <p class="green">@Model.NumberQuestions Questions</p>
+        <small class="yellow">From @Model.CreatedOn</small>
+        <br />
+        <small class="yellow">by @Model.Author</small>
+        <p class="red">
+            @for (int i = 0; i < 5; i++)
+            {
+                if (i < @Model.Rating)
+                {
+                    <i class="glyphicon glyphicon-star"></i>
+                }
+                else
+                {
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                }
+            }
+            @Model.Rating
+        </p>
+    </div>
+</div>

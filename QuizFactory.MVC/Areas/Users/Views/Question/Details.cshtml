@@ -1,0 +1,23 @@
+﻿@model QuizFactory.Mvc.ViewModels.QuestionViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="gray">
+    <h4>
+       @Html.DisplayFor(model => model.QuestionText)
+    </h4>
+    <p>
+        @Html.DisplayFor(m => m.Answers)
+    </p>
+</div>
+
+
+<div>
+    <div class="questions-button">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id, quizId = Model.QuizId }, new { @class = "btn btn-primary box-shadow" })
+    </div>
+    @Html.ActionLink("Back to Questions", "Index", new { quizId = Model.QuizId })
+
+</div>
