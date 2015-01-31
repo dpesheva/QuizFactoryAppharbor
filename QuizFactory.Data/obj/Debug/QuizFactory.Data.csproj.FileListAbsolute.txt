@@ -1,33 +1,5 @@
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\obj\Debug\QuizFactory.Data.csprojResolveAssemblyReference.cache
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.dll.config
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.dll
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.pdb
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\obj\Debug\QuizFactory.Data.dll
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\obj\Debug\QuizFactory.Data.pdb
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\bin\EntityFramework.dll
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\bin\EntityFramework.SqlServer.dll
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\bin\EntityFramework.xml
-D:\Telerik\17.ASP.NET MVC\Project\QuizFactory\QuizFactory.Data\bin\EntityFramework.SqlServer.xml
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.pdb
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\EntityFramework.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\EntityFramework.SqlServer.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\EntityFramework.xml
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\EntityFramework.SqlServer.xml
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\obj\Debug\QuizFactory.Data.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\obj\Debug\QuizFactory.Data.pdb
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\obj\Debug\QuizFactory.Data.csprojResolveAssemblyReference.cache
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.Common.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.Models.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.Common.pdb
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\QuizFactory.Data.Models.pdb
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\HelperExtentions.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\System.Web.WebPages.dll
-C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data\bin\HelperExtentions.pdb
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\obj\Debug\QuizFactory.Data.dll
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\obj\Debug\QuizFactory.Data.pdb
 C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\bin\QuizFactory.Data.dll
 C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\bin\QuizFactory.Data.pdb
 C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\bin\EntityFramework.dll
@@ -46,5 +18,3 @@ C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\bin\Entity
 C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\obj\Debug\QuizFactory.Data.csprojResolveAssemblyReference.cache
-C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\obj\Debug\QuizFactory.Data.dll
-C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data\obj\Debug\QuizFactory.Data.pdb

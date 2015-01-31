@@ -345,7 +345,7 @@
       <Name>QuizFactory.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\QuizFactory.Data\QuizFactory.Data.csproj">
-      <Project>{c8ba5e54-fd59-41e5-9a2a-fbe1407f7e33}</Project>
+      <Project>{1dc9cdef-7215-406a-8755-9802f06e7564}</Project>
       <Name>QuizFactory.Data</Name>
     </ProjectReference>
   </ItemGroup>
