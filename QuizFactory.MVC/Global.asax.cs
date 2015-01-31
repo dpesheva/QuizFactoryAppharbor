@@ -22,7 +22,7 @@
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture; 
         }
     }
 }

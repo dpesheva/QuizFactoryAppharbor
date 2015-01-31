@@ -4,3 +4,10 @@ C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data.Common\
 C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data.Common\bin\Debug\EntityFramework.xml
 C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data.Common\obj\Debug\QuizFactory.Data.Common.dll
 C:\Users\Diana\Documents\GitHub\QuizFactory\QuizFactory\QuizFactory.Data.Common\obj\Debug\QuizFactory.Data.Common.pdb
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data.Common\bin\Debug\QuizFactory.Data.Common.dll
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data.Common\bin\Debug\QuizFactory.Data.Common.pdb
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data.Common\bin\Debug\EntityFramework.dll
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data.Common\bin\Debug\EntityFramework.xml
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data.Common\obj\Debug\QuizFactory.Data.Common.csprojResolveAssemblyReference.cache
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data.Common\obj\Debug\QuizFactory.Data.Common.dll
+C:\Users\Diana\Documents\GitHub\QuizFactoryAppharbor\QuizFactory.Data.Common\obj\Debug\QuizFactory.Data.Common.pdb
