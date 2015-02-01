@@ -7,7 +7,12 @@
 <h1 class="text-danger text-center">Error.</h1>
 <h4 class="blue text-center">@Model.Exception.Message</h4>
 
-<h5 class="blue text-center">Inner exception message: @Model.Exception.InnerException.Message</h5>
+<h5 class="blue text-center">
+    @if (Model.Exception.InnerException != null)
+    {
+        @Model.Exception.InnerException.Message
+    }
+</h5>
 
 
 
