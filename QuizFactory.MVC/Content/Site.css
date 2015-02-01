@@ -2,12 +2,6 @@
     background-color: rgb(247,247,247);
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -27,7 +21,7 @@ a:hover {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-left: solid 1px #d9d9d9;
-    box-shadow: inset -40px -4px 54px -8px rgb(247,247,247);
+    box-shadow: inset -25px -4px 70px -8px rgb(247,247,247);
     /*box-shadow: -11px 1px 54px -8px rgba(0,0,0,1);*/
 }
 
@@ -52,6 +46,10 @@ a:hover {
 
 .nav .open > a, .nav .open > a:focus, a:focus {
     background-color: transparent !important;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
 }
 
 .main-menu, .dropdown-menu {

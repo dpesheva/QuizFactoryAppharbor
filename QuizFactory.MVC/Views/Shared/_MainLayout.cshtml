@@ -13,20 +13,20 @@
     @Styles.Render("~/Content/custom")
 </head>
 <body>
-    <div class="clearfix">
-        <a href='@Url.Action("Index", "Home", new { area = "" })' class="navbar-brand">
-            <img src='@Url.Content("~/Content/Images/logo.png")' />
-        </a>
+    <nav class="navbar">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    <img src='@Url.Content("~/Content/Images/logo.png")' />
+                </a>
+            </div>
         @Html.Partial("_LoginPartial")
-
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse  main-menu">
+        <div class="collapse navbar-collapse main-menu" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })</li>
                 @if (User.Identity.IsAuthenticated)
@@ -35,7 +35,7 @@
                     <li>@Html.ActionLink("My Quizzes", "Index", "QuizUsers", new { area = "Users" }, new { })</li>
                     <li>@Html.ActionLink("History", "Index", "History", new { area = "Users" }, new { })</li>
                 }
-               
+
                 @if (User.IsInRole(GlobalConstants.AdminRole))
                 {
                     <li class="dropdown">
@@ -59,7 +59,8 @@
                 }
             </div>
         </div>
-    </div>
+    </nav>
+
     <div class="container">
         @RenderBody()
     </div>
