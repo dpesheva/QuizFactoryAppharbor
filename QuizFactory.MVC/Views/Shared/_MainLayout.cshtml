@@ -14,49 +14,53 @@
 </head>
 <body>
     <nav class="navbar">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href='@Url.Action("Index", "Home", new { area = "" })' class="navbar-brand">
-					<img src='@Url.Content("~/Content/Images/logo.png")' />
-				</a>
-            </div>
-        @Html.Partial("_LoginPartial")
-        <div class="collapse navbar-collapse main-menu" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })</li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li>@Html.ActionLink("New Quiz", "Create", "QuizUsers", new { area = "Users" }, new { })</li>
-                    <li>@Html.ActionLink("My Quizzes", "Index", "QuizUsers", new { area = "Users" }, new { })</li>
-                    <li>@Html.ActionLink("History", "Index", "History", new { area = "Users" }, new { })</li>
-                }
+        @*@Html.Partial("_LoginPartial")*@
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href='@Url.Action("Index", "Home", new { area = "" })' class="navbar-brand">
+                <img src='@Url.Content("~/Content/Images/logo.png")' />
+            </a>
+        </div>
+        @*@Html.Partial("_LoginPartial")*@
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            @Html.Partial("_LoginPartial")
+            <div class="main-menu">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("New Quiz", "Create", "QuizUsers", new { area = "Users" }, new { })</li>
+                        <li>@Html.ActionLink("My Quizzes", "Index", "QuizUsers", new { area = "Users" }, new { })</li>
+                        <li>@Html.ActionLink("History", "Index", "History", new { area = "Users" }, new { })</li>
+                    }
 
-                @if (User.IsInRole(GlobalConstants.AdminRole))
-                {
-                    <li class="dropdown">
-                        <a class=" dropdown-toggle" data-toggle="dropdown" href="#">
-                            Admin
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink("Categories", "Index", "Categories", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Quizzes", "Index", "QuizAdmin", new { area = "Admin" }, new { })</li>
-                            <li>@Html.ActionLink("Users", "Index", "Users", new { area = "Admin" }, new { })</li>
-                        </ul>
-                    </li>
-                }
-            </ul>
-            <div class="right search-form">
-                @using (Html.BeginForm("Search", "Home", new { }, FormMethod.Get, new { }))
-                {
-                    @Html.TextBox("search", "", new { @class = "search-box gray", placeholder = "Search..." })
-                    <label for="submit" class="glyphicon glyphicon-search search-button">  </label>
-                    @Html.Submit(new { id = "submit", value = "", @class = "hidden" })
-                }
+                    @if (User.IsInRole(GlobalConstants.AdminRole))
+                    {
+                        <li class="dropdown">
+                            <a class=" dropdown-toggle" data-toggle="dropdown" href="#">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("Categories", "Index", "Categories", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Quizzes", "Index", "QuizAdmin", new { area = "Admin" }, new { })</li>
+                                <li>@Html.ActionLink("Users", "Index", "Users", new { area = "Admin" }, new { })</li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                <div class="right search-form">
+                    @using (Html.BeginForm("Search", "Home", new { }, FormMethod.Get, new { }))
+                    {
+                        @Html.TextBox("search", "", new { @class = "search-box gray", placeholder = "Search..." })
+                        <label for="submit" class="glyphicon glyphicon-search search-button">  </label>
+                        @Html.Submit(new { id = "submit", value = "", @class = "hidden" })
+                    }
+                </div>
             </div>
         </div>
     </nav>
