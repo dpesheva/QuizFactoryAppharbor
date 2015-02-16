@@ -52,6 +52,41 @@ a:hover {
     margin-bottom: 0 !important;
 }
 
+@media (max-width: 1024px) {
+    .navbar-brand {
+        max-width: 95%;
+    }
+
+        .navbar-brand img {
+            max-width: 90%;
+        }
+}
+
+@media (max-width: 980px) {
+    .navbar-brand {
+        max-width: 85%;
+    }
+
+        .navbar-brand img {
+            max-width: 90%;
+        }
+}
+
+@media (max-width: 767px) {
+    .navbar-brand {
+        max-width: 70%;
+    }
+
+        .navbar-brand img {
+            max-width: 90%;
+        }
+
+    .main-menu.in {
+        width: 50%;
+        margin-left: 45%;
+    }
+}
+
 .main-menu, .dropdown-menu {
     text-shadow: 0 2px 2px gray;
     border: solid 1px #8FB613;
@@ -69,11 +104,10 @@ a:hover {
 
 .main-menu {
     width: 70%;
-    margin-top: 50px;
     float: right !important;
     margin-left: 25%;
     position: absolute;
-    padding: 0 10px;
+    top: 50px;
 }
 
     .main-menu li a {
