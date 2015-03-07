@@ -10,5 +10,5 @@
 
 <div class="pager gray">
     @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount,
-                new AjaxOptions { UpdateTargetId = "content" }) @*.Options(o => o.AddRouteValue("catId" , ""))*@
+                                                new AjaxOptions { UpdateTargetId = "content" }).Options(o => o.AddRouteValue("catId", @Request.Params["catId"]))
 </div> 

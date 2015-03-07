@@ -9,5 +9,5 @@
     </div>
 
     <div class="pager gray">
-        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount).Options(o => o.AddRouteValue("search", ViewBag.SearchString))
+        @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount).Options(o => o.AddRouteValue("search", @Request.Params["search"]))
     </div> 

@@ -71,7 +71,6 @@
                               .To<QuizMainInfoViewModel>()
                               .ToList();
 
-            this.ViewBag.SearchString = search;
             this.ViewBag.Pages = Math.Ceiling((double)quizzes.Count() / PageSize);
 
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
