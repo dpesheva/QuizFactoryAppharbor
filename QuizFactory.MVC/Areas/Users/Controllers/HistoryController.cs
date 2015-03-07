@@ -61,9 +61,14 @@
                 throw new HttpException("Quiz not found");
             }
 
-            Dictionary<int, int> selectedAnswersInt = this.CollectAnswers(takenQuiz);
+            List<QuestionPlayViewModel> questionsFromHistory;
+
+            Dictionary<int, int> selectedAnswersInt = this.CollectAnswers(takenQuiz, out questionsFromHistory);
             this.TempData["results"] = selectedAnswersInt;
             this.TempData["scorePercentage"] = takenQuiz.Score;
+
+            // if the questions are modified, we need to extract info from the time when the quiz has been taken
+            this.TempData["questionsFromHistory"] = questionsFromHistory;
 
             var userId = User.Identity.GetUserId();
             ViewBag.Voted = this.Db.Votes.All().Where(v => v.QuizDefinitionId == quizDef.Id && v.UserId == userId).Any();
@@ -71,14 +76,26 @@
             return this.View("DisplayAnswers", quizDef);
         }
 
-        private Dictionary<int, int> CollectAnswers(TakenQuiz takenQuiz)
+        private Dictionary<int, int> CollectAnswers(TakenQuiz takenQuiz, out List<QuestionPlayViewModel> questionsFromHistory)
         {
             Dictionary<int, int> result = new Dictionary<int, int>();
+            questionsFromHistory = new List<QuestionPlayViewModel>();
+
             var userAnswers = takenQuiz.UsersAnswers;
 
             foreach (var item in userAnswers)
             {
-                result.Add(item.AnswerDefinition.QuestionDefinition.Id, item.AnswerDefinitionId);
+                var questionId = item.AnswerDefinition.QuestionDefinition.Id;
+                result.Add(questionId, item.AnswerDefinitionId);
+
+                var question = this.Db.QuestionsDefinitions
+                                   .AllWithDeleted()
+                                   .Where(q => q.Id == questionId)
+                                   .Project()
+                                   .To<QuestionPlayViewModel>()
+                                   .FirstOrDefault();
+
+                questionsFromHistory.Add(question);
             }
 
             return result;

@@ -310,11 +310,10 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_QuizBoxPartial.cshtml" />
-    <Content Include="Views\Shared\_OpenQuestionPartial.cshtml" />
     <Content Include="Views\Shared\_ListQuizBoxesPartial.cshtml" />
     <Content Include="Views\Shared\_CategoriesPartial.cshtml" />
     <Content Include="Views\Play\PlayQuizLayout.cshtml" />
-    <Content Include="Views\Shared\_AnswerPartial.cshtml" />
+    <Content Include="Views\Shared\_ListAnswerPartial.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\AnswerViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\QuestionPlayViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayAnswers.cshtml" />

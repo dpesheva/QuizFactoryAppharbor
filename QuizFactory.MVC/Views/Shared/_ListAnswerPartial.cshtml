@@ -1,0 +1,37 @@
+﻿@model  IEnumerable<QuizFactory.Mvc.ViewModels.Play.QuestionPlayViewModel>
+
+@{
+    Dictionary<int, int> results = (Dictionary<int, int>)TempData["results"];
+}
+
+@foreach (var question in Model)
+{
+    <div class="question box-shadow gray">
+        <h4>@question.QuestionText </h4>
+        @{
+
+    foreach (var answer in question.Answers)
+    {
+        string answerColor = "";
+        bool isSelected = false;
+        if (results.ContainsKey((question.Id)) && results[(question.Id)] == answer.Id)
+        {
+            answerColor = "blue";
+            isSelected = true;
+        }
+        <p class=@answerColor>
+            @answer.Text
+            @if (answer.IsCorrect)
+            {
+                <i class="glyphicon glyphicon-ok green"></i>
+            }
+            else if (isSelected) //Selected wrong answer
+            {
+                <i class="glyphicon glyphicon-remove red"></i>
+            }
+        </p>
+    }
+        }
+
+    </div>
+}
