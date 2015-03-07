@@ -17,8 +17,6 @@
     {
         private const int PageSize = 6;
 
-        private static readonly Random Random = new Random();
-
         public HomeController(IQuizFactoryData data)
             : base(data)
         {
@@ -34,8 +32,6 @@
                 this.ViewBag.Category = category.Name;
             }
 
-            this.ViewBag.Pages = Math.Ceiling((double)this.Db.QuizzesDefinitions.All().Count() / PageSize);
-
             return this.View();
         }
 
@@ -50,12 +46,10 @@
         {
             if (this.Db.QuizzesDefinitions.All().Any())
             {
-                int rnd = Random.Next(this.Db.QuizzesDefinitions.All().Count());
-
                 var ramdomQuizzes = this.Db.QuizzesDefinitions
                                         .All()
-                                        .Where(q => q.IsPublic == true)
-                                        .OrderBy(e => rnd)
+                                        .Where(q => q.IsPublic == true) // TODO add user's quizes
+                                        .OrderBy(e => Guid.NewGuid())
                                         .Take(3)
                                         .Project()
                                         .To<QuizMainInfoViewModel>()
@@ -72,10 +66,11 @@
             search = search ?? string.Empty;
             var quizzes = this.Db.QuizzesDefinitions
                               .All()
-                              .Where(q => q.Title.ToLower().Contains(search.ToLower()))
+                              .Where(q => q.Title.ToLower().Contains(search.ToLower()) && q.IsPublic == true) // TODO add user's quizes
                               .Project()
                               .To<QuizMainInfoViewModel>()
                               .ToList();
+
             this.ViewBag.SearchString = search;
             this.ViewBag.Pages = Math.Ceiling((double)quizzes.Count() / PageSize);
 
