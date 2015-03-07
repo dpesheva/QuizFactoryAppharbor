@@ -9,7 +9,7 @@
     using QuizFactory.Data.Models;
     using QuizFactory.Mvc.ViewModels;
 
-    public class QuizUserViewModel 
+    public class QuizUserViewModel
     {
         public static Expression<Func<QuizDefinition, QuizUserViewModel>> FromQuizDefinition
         {
@@ -24,6 +24,7 @@
                     IsPublic = quiz.IsPublic,
                     CreatedOn = quiz.CreatedOn,
                     Author = quiz.Author.UserName,
+                    Rating = quiz.Rating,
                     NumberQuestions = quiz.QuestionsDefinitions.Count.ToString(),
                     Questions = quiz.QuestionsDefinitions.Select(q => new QuestionViewModel
                     {
