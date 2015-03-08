@@ -12,6 +12,10 @@ namespace QuizFactory.Mvc.App_Start
     using Ninject.Web.Common;
     using QuizFactory.Data;
     using QuizFactory.Mvc.Caching;
+    using QuizFactory.Services;
+    using QuizFactory.Services.Interfaces;
+    using QuizFactory.Data.Common.Interfaces;
+    using QuizFactory.Data.Repositories;
 
     public static class NinjectWebCommon
     {
@@ -66,6 +70,8 @@ namespace QuizFactory.Mvc.App_Start
             kernel.Bind<IQuizFactoryDbContext>().To<QuizFactoryDbContext>();
             kernel.Bind<IQuizFactoryData>().To<QuizFactoryData>();
             kernel.Bind<ICacheService>().To<InMemoryCache>();
+            kernel.Bind<IQuizzesService>().To<QuizzesService>();
+            kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
         }
     }
 }

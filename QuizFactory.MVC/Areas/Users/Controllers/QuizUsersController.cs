@@ -59,6 +59,7 @@
         }
 
         [HttpPost]
+        [OwnerOrAdminAttribute("id")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(QuizUserViewModel quizViewModel)
         {
@@ -139,6 +140,7 @@
             dbQuiz.Title = quizViewModel.Title;
             dbQuiz.CategoryId = quizViewModel.CategoryId;
             dbQuiz.IsPublic = quizViewModel.IsPublic;
+            dbQuiz.Rating = quizViewModel.Rating;
 
             var user = this.Db.Users.Find(this.User.Identity.GetUserId());
 

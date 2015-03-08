@@ -6,22 +6,25 @@
     using System.Linq.Expressions;
     using System.Net;
     using System.Web.Mvc;
-    using AutoMapper.QueryableExtensions;
+    using HelperExtentions;
     using MvcPaging;
     using QuizFactory.Data;
     using QuizFactory.Data.Models;
     using QuizFactory.Mvc.ViewModels;
+    using QuizFactory.Services.Interfaces;
 
     [HandleError]
     public class HomeController : BaseController
     {
         private const int PageSize = 6;
+        private readonly IQuizzesService quizzesData;
 
-        public HomeController(IQuizFactoryData data)
+        public HomeController(IQuizFactoryData data, IQuizzesService quizzesData)
             : base(data)
         {
+            this.quizzesData = quizzesData;
         }
-
+        
         public ActionResult Index(int? catId)
         {
             this.ViewBag.CategoryId = catId;
@@ -46,14 +49,10 @@
         {
             if (this.Db.QuizzesDefinitions.All().Any())
             {
-                var ramdomQuizzes = this.Db.QuizzesDefinitions
-                                        .All()
-                                        .Where(q => q.IsPublic == true) // TODO add user's quizes
-                                        .OrderBy(e => Guid.NewGuid())
+                var ramdomQuizzes = this.quizzesData
+                                        .GetAllPublic(e => Guid.NewGuid(), true) // TODO add user's quizzes
                                         .Take(3)
-                                        .Project()
-                                        .To<QuizMainInfoViewModel>()
-                                        .ToList();
+                                        .Project<QuizDefinition, QuizMainInfoViewModel>();
 
                 return this.PartialView("_RandomQuizBoxesPartial", ramdomQuizzes);
             }
@@ -64,12 +63,10 @@
         public ActionResult Search(string search, int? page)
         {
             search = search ?? string.Empty;
-            var quizzes = this.Db.QuizzesDefinitions
-                              .All()
-                              .Where(q => q.Title.ToLower().Contains(search.ToLower()) && q.IsPublic == true) // TODO add user's quizes
-                              .Project()
-                              .To<QuizMainInfoViewModel>()
-                              .ToList();
+            var quizzes = this.quizzesData
+                              .GetAllPublic()// TODO add user's quizzes
+                              .Where(q => q.Title.ToLower().Contains(search.ToLower())) 
+                              .Project<QuizDefinition, QuizMainInfoViewModel>();
 
             this.ViewBag.Pages = Math.Ceiling((double)quizzes.Count() / PageSize);
 
@@ -128,30 +125,16 @@
 
         private IEnumerable<QuizMainInfoViewModel> GetData<TOrderBy>(int? catId, Expression<Func<QuizDefinition, TOrderBy>> predicate, bool asc)
         {
-            IQueryable<QuizDefinition> quizzesQuery;
-
-            if (asc)
-            {
-                quizzesQuery = this.Db.QuizzesDefinitions.All().OrderBy(predicate);
-            }
-            else
-            {
-                quizzesQuery = this.Db.QuizzesDefinitions.All().OrderByDescending(predicate);
-            }
-
-            Expression<Func<QuizDefinition, bool>> filter = q => q.IsPublic == true;
+            IQueryable<QuizDefinition> quizzesQuery = this.quizzesData.GetAllPublic(predicate, asc);
 
             if (catId != null)
             {
-                filter = q => (q.IsPublic == true) && (q.Category.Id == catId);
+                quizzesQuery = quizzesQuery.Where(q => q.CategoryId == catId);
             }
 
-            return quizzesQuery.Where(filter)
-                               .Project()
-                               .To<QuizMainInfoViewModel>()
-                               .ToList();
+            return quizzesQuery.Project<QuizDefinition, QuizMainInfoViewModel>();
         }
-
+        
         private ActionResult FormatOutput(int? page, IEnumerable<QuizMainInfoViewModel> quizzes)
         {
             this.ViewBag.Pages = Math.Ceiling((double)quizzes.Count() / PageSize);

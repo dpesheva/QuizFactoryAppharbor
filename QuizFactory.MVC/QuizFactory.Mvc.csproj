@@ -349,6 +349,10 @@
       <Project>{bc20eaa3-c1f8-4255-b337-be8548afad6b}</Project>
       <Name>QuizFactory.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QuizFactory.Services\QuizFactory.Services.csproj">
+      <Project>{e4205aa0-1f1f-4671-80c7-9c55529eaa13}</Project>
+      <Name>QuizFactory.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
